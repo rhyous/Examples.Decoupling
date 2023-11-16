@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>LibraryA</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--How do we eliminate this hard-coupled reference?-->
+    <ProjectReference Include="..\B\B.csproj" />
+  </ItemGroup>
+
+</Project>

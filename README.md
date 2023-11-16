@@ -1,2 +1,2 @@
 # Examples.Decoupling
-A repo hosting example code for how to decouple.
+A repo hosting example C# code for how to decouple.
