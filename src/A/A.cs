@@ -1,23 +1,23 @@
 ﻿using LibraryA.Interfaces;
-using LibraryB.Interfaces;
 
 namespace LibraryA
 {
     public class A : IA
     {
+        private readonly IDoSomethingEvent _doSomethingEvent;
+
         // We now are following SOLID, and depending on only an interface.
-        private readonly IB _b;
-        public A(IB b)
+        public A(IDoSomethingEvent doSomethingEvent)
         {
-            _b = b;
+            _doSomethingEvent = doSomethingEvent;
         }
 
         public void DoSomething()
         {
-            // The hard coupling to B is gone!
+            // All coupling to both IB or B is gone!
             // Responsibilities
             // 1. DoSomething() - this is the only responsiblity it should have.
-            _b.DoSomething();
+            _doSomethingEvent.DoSomething();
             Console.WriteLine($"{nameof(A)} did something!");
         }
     }

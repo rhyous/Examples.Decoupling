@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\A\A.csproj" />
-    <ProjectReference Include="..\B\B.csproj" />
   </ItemGroup>
 
 </Project>

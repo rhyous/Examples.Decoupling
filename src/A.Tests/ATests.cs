@@ -1,6 +1,4 @@
-﻿using LibraryA;
-using LibraryB.Interfaces;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using LibraryA.Interfaces;
 using Moq;
 
 namespace LibraryA.Tests
@@ -9,18 +7,18 @@ namespace LibraryA.Tests
     public class ATests
     {
         private MockRepository _mockRepository;
-        private Mock<IB> _mockB;
+        private Mock<IDoSomethingEvent> _mockDoSomethingEvent;
 
         [TestInitialize]
         public void TestInitialize()
         {
             _mockRepository = new MockRepository(MockBehavior.Strict);
-            _mockB = _mockRepository.Create<IB>();
+            _mockDoSomethingEvent = _mockRepository.Create<IDoSomethingEvent>();
         }
 
         private A CreateA()
         {
-            return new A(_mockB.Object);
+            return new A(_mockDoSomethingEvent.Object);
         }
 
         #region DoSomething
@@ -30,7 +28,7 @@ namespace LibraryA.Tests
             // Arrange
             var a = CreateA();
             // Setup the mock
-            _mockB.Setup(m => m.DoSomething());
+            _mockDoSomethingEvent.Setup(m => m.DoSomething());
 
             // Act
             a.DoSomething();

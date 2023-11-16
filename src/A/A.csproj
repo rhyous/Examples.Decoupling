@@ -9,9 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\A.Interfaces\A.Interfaces.csproj" />
-    <!--This below reference is more acceptable.
-        But even coupling to the interface could be removed.-->
-    <ProjectReference Include="..\B.Interfaces\B.Interfaces.csproj" />
+    <!--No reference to LibraryB.Interfaces or LibraryB exists.-->
   </ItemGroup>
 
 </Project>
