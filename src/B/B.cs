@@ -1,6 +1,8 @@
-﻿namespace LibraryB
+﻿using LibraryB.Interfaces;
+
+namespace LibraryB
 {
-    public class B
+    public class B : IB
     {
         public void DoSomething()
         {

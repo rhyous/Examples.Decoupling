@@ -1,4 +1,5 @@
 ﻿using LibraryA;
+using LibraryB.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -8,16 +9,18 @@ namespace LibraryA.Tests
     public class ATests
     {
         private MockRepository _mockRepository;
+        private Mock<IB> _mockB;
 
         [TestInitialize]
         public void TestInitialize()
         {
             _mockRepository = new MockRepository(MockBehavior.Strict);
+            _mockB = _mockRepository.Create<IB>();
         }
 
         private A CreateA()
         {
-            return new A();
+            return new A(_mockB.Object);
         }
 
         #region DoSomething
@@ -26,13 +29,14 @@ namespace LibraryA.Tests
         {
             // Arrange
             var a = CreateA();
+            // Setup the mock
+            _mockB.Setup(m => m.DoSomething());
 
             // Act
             a.DoSomething();
 
             // Assert
-            // What do we assert? 
-            // We can't assert that B was called as is.
+            // The below will now at least assert that B.DoSomething was called.
             _mockRepository.VerifyAll();
         }
         #endregion

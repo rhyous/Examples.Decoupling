@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -8,8 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--How do we eliminate this hard-coupled reference?-->
-    <ProjectReference Include="..\B\B.csproj" />
+    <ProjectReference Include="..\A.Interfaces\A.Interfaces.csproj" />
+    <!--This below reference is more acceptable.
+        But even coupling to the interface could be removed.-->
+    <ProjectReference Include="..\B.Interfaces\B.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

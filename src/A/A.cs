@@ -1,26 +1,23 @@
-﻿using LibraryB;
+﻿using LibraryA.Interfaces;
+using LibraryB.Interfaces;
 
 namespace LibraryA
 {
-    public class A
+    public class A : IA
     {
-        // It could also be coupled like this
-        //private readonly B _b;
-        //public A(B b)
-        //{
-        //    _b = b;
-        //}
+        // We now are following SOLID, and depending on only an interface.
+        private readonly IB _b;
+        public A(IB b)
+        {
+            _b = b;
+        }
 
         public void DoSomething()
         {
-            // How do we eliminate this hard coupling to B?
-            // This is called the Control Freak antipattern.
-            // This breaks the S in SOLID (i.e. Single Responsibility Principle)
+            // The hard coupling to B is gone!
             // Responsibilities
             // 1. DoSomething() - this is the only responsiblity it should have.
-            // 2. Object instantiation
-            // 3. Object lifetime management - what if B needs disposed?
-            new B().DoSomething();
+            _b.DoSomething();
             Console.WriteLine($"{nameof(A)} did something!");
         }
     }

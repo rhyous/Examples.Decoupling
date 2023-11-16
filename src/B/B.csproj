@@ -7,4 +7,8 @@
     <RootNamespace>LibraryB</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\B.Interfaces\B.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>
