@@ -1,11 +1,9 @@
-using LibraryB;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace LibraryB.Tests
+namespace LibraryC.Tests
 {
     [TestClass]
-    public class BTests
+    public class CTests
     {
         private MockRepository _mockRepository;
 
@@ -15,20 +13,20 @@ namespace LibraryB.Tests
             _mockRepository = new MockRepository(MockBehavior.Strict);
         }
 
-        private B CreateB()
+        private C CreateC()
         {
-            return new B();
+            return new C();
         }
 
         #region DoSomething
         [TestMethod]
-        public void B_DoSomething_UnableToTest_Test()
+        public void C_DoSomething_UnableToTest_Test()
         {
             // Arrange
-            var b = CreateB();
+            var c = CreateC();
 
             // Act
-            b.DoSomething();
+            c.DoSomething();
 
             // Assert
             // What do we assert?

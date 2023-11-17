@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -10,6 +10,8 @@
   <ItemGroup>
     <!--How do we eliminate this hard-coupled reference?-->
     <ProjectReference Include="..\B\B.csproj" />
+    <!--Adding C adds another hard-coupled reference?-->
+    <ProjectReference Include="..\C\C.csproj" />
   </ItemGroup>
 
 </Project>

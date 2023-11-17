@@ -1,4 +1,5 @@
 ﻿using LibraryB;
+using LibraryC;
 
 namespace LibraryA
 {
@@ -20,7 +21,8 @@ namespace LibraryA
             // 1. DoSomething() - this is the only responsiblity it should have.
             // 2. Object instantiation
             // 3. Object lifetime management - what if B needs disposed?
-            new B().DoSomething();
+            // 
+            new B(new C()).DoSomething();
             Console.WriteLine($"{nameof(A)} did something!");
         }
     }
