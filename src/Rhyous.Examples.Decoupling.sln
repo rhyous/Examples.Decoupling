@@ -5,19 +5,23 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "A", "A\A.csproj", "{A7C9761E-4FED-4EEF-A8DD-D5D7643ECAB2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B", "B\B.csproj", "{51F8BABD-5D08-4E23-AE37-7855AB3B6CA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B.Implementation1", "B.Implementation1\B.Implementation1.csproj", "{51F8BABD-5D08-4E23-AE37-7855AB3B6CA7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "App\App.csproj", "{D620CF0B-9E68-454E-B45D-AEAF8D6D7C09}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{B84D737F-2F82-427A-B185-91B6C053D5A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A.Tests", "A.Tests\A.Tests.csproj", "{498636D2-90F3-483A-9443-E95EAD8CE001}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "A.Tests", "A.Tests\A.Tests.csproj", "{498636D2-90F3-483A-9443-E95EAD8CE001}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B.Tests", "B.Tests\B.Tests.csproj", "{E3FAF568-01F5-4B48-8DAD-5922FA67C8FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B.Implementation1.Tests", "B.Implementation1.Tests\B.Implementation1.Tests.csproj", "{E3FAF568-01F5-4B48-8DAD-5922FA67C8FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A.Interfaces", "A.Interfaces\A.Interfaces.csproj", "{D48DB6E0-EA90-433E-83F5-2148A345DBDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "A.Interfaces", "A.Interfaces\A.Interfaces.csproj", "{D48DB6E0-EA90-433E-83F5-2148A345DBDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B.Interfaces", "B.Interfaces\B.Interfaces.csproj", "{EDB2C49C-A264-43F9-B323-7A92EE8CF740}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B.Interfaces", "B.Interfaces\B.Interfaces.csproj", "{EDB2C49C-A264-43F9-B323-7A92EE8CF740}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B.Implementation2", "B.Implementation2\B.Implementation2.csproj", "{817FA602-94BE-4A71-B74A-2BF78F489810}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B.Implementation2.Tests", "B.Implementation2.Tests\B.Implementation2.Tests.csproj", "{ACB39815-7886-4664-8297-8AA5377FF4D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +57,14 @@ Global
 		{EDB2C49C-A264-43F9-B323-7A92EE8CF740}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDB2C49C-A264-43F9-B323-7A92EE8CF740}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDB2C49C-A264-43F9-B323-7A92EE8CF740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{817FA602-94BE-4A71-B74A-2BF78F489810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817FA602-94BE-4A71-B74A-2BF78F489810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817FA602-94BE-4A71-B74A-2BF78F489810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817FA602-94BE-4A71-B74A-2BF78F489810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACB39815-7886-4664-8297-8AA5377FF4D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB39815-7886-4664-8297-8AA5377FF4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB39815-7886-4664-8297-8AA5377FF4D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB39815-7886-4664-8297-8AA5377FF4D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +76,8 @@ Global
 		{E3FAF568-01F5-4B48-8DAD-5922FA67C8FC} = {B84D737F-2F82-427A-B185-91B6C053D5A7}
 		{D48DB6E0-EA90-433E-83F5-2148A345DBDB} = {B84D737F-2F82-427A-B185-91B6C053D5A7}
 		{EDB2C49C-A264-43F9-B323-7A92EE8CF740} = {B84D737F-2F82-427A-B185-91B6C053D5A7}
+		{817FA602-94BE-4A71-B74A-2BF78F489810} = {B84D737F-2F82-427A-B185-91B6C053D5A7}
+		{ACB39815-7886-4664-8297-8AA5377FF4D2} = {B84D737F-2F82-427A-B185-91B6C053D5A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C89D115-FB6B-4C58-93CB-0824ED184A58}

@@ -2,7 +2,7 @@ using LibraryB;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace LibraryA.Tests
+namespace LibraryB.Implementation2.Tests
 {
     [TestClass]
     public class BTests

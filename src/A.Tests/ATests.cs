@@ -1,4 +1,5 @@
 ﻿using LibraryA.Interfaces;
+using LibraryA.Models;
 using Moq;
 
 namespace LibraryA.Tests
@@ -7,18 +8,18 @@ namespace LibraryA.Tests
     public class ATests
     {
         private MockRepository _mockRepository;
-        private Mock<ISomethingProvider> _mockDoSomethingEvent;
+        private Mock<ISomethingProvider> _mockSomethingProvider;
 
         [TestInitialize]
         public void TestInitialize()
         {
             _mockRepository = new MockRepository(MockBehavior.Strict);
-            _mockDoSomethingEvent = _mockRepository.Create<ISomethingProvider>();
+            _mockSomethingProvider = _mockRepository.Create<ISomethingProvider>();
         }
 
         private A CreateA()
         {
-            return new A(_mockDoSomethingEvent.Object);
+            return new A(_mockSomethingProvider.Object);
         }
 
         #region DoSomething
@@ -28,10 +29,11 @@ namespace LibraryA.Tests
             // Arrange
             var a = CreateA();
             // Setup the mock
-            _mockDoSomethingEvent.Setup(m => m.ReturnSomething());
-
+            var something = new Something();
+            _mockSomethingProvider.Setup(m => m.ReturnSomething())
+                                  .Returns(something);
             // Act
-            a.ReturnSomething();
+            var actual = a.ReturnSomething();
 
             // Assert
             // The below will now at least assert that B.DoSomething was called.

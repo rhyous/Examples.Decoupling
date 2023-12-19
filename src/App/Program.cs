@@ -2,7 +2,9 @@
 using App;
 using AutoMapper;
 using LibraryA;
-using LibraryB;
+using LibraryB.Implementation1;
+using LibraryB.Implementation2;
+using LibraryB.Interfaces;
 using System.Text.Json;
 
 // Start composition root.
@@ -18,9 +20,13 @@ var config = new MapperConfiguration(cfg =>
            // This line is only needed to go in reverse and isn't used in this example.
            .ReverseMap(); 
     });
+var mySettings = new MySettings(args);
 var mapper = new Mapper(config);
-
-var b = new B();
+IB b = null;
+if (mySettings.BImpl == typeof(LibraryB.Implementation1.B))
+    b = new LibraryB.Implementation1.B();
+if (mySettings.BImpl == typeof(LibraryB.Implementation2.B))
+    b = new LibraryB.Implementation1.B();
 var concreteDoSomethingEvent = new ConcreteSomethingProvider(b, mapper); // <-- B is injected as the concrete implementation of IB.
 var a = new A(concreteDoSomethingEvent); // <-- Concrete is in App and is injected
 // End composition root
