@@ -1,4 +1,5 @@
-﻿using LibraryA;
+﻿using AutoMapper;
+using LibraryA;
 using LibraryA.Interfaces;
 using LibraryA.Models;
 using LibraryB.Interfaces;
@@ -13,20 +14,18 @@ namespace App
     internal class ConcreteSomethingProvider : ISomethingProvider
     {
         private readonly IB _b;
+        private readonly IMapper _mapper;
 
-        public ConcreteSomethingProvider(IB b)
+        public ConcreteSomethingProvider(IB b, IMapper mapper)
         {
             _b = b;
+            _mapper = mapper;
         }
         public Something ReturnSomething()
         {
             // Convert occurs here
             var bSomething = _b.ReturnSomething();
-            return new Something 
-            {
-                Id = bSomething.Id,
-                Name = bSomething.Name
-            };
+            return _mapper.Map<Something>(bSomething);
         }
     }
 }

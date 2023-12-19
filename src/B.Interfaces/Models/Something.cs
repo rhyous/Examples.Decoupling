@@ -13,7 +13,7 @@
     public class Something
     {
         public int Id { get; set; }
-        /// <remarks>Go ahead and rename this and nothing breaks.<remarks>
-        public string Name { get; set; }
+        /// <remarks>We changed the property to 'Title' from 'Name'.<remarks>
+        public string Title { get; set; }
     }
 }
