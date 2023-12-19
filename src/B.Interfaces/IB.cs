@@ -1,7 +1,9 @@
-﻿namespace LibraryB.Interfaces
+﻿using LibraryB.Models;
+
+namespace LibraryB.Interfaces
 {
     public interface IB
     {
-        void DoSomething();
+        Something ReturnSomething();
     }
 }

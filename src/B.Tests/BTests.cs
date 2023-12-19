@@ -28,7 +28,7 @@ namespace LibraryA.Tests
             var a = CreateB();
 
             // Act
-            a.DoSomething();
+            a.ReturnSomething();
 
             // Assert
             // What do we assert?

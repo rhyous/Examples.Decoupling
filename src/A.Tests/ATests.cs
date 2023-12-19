@@ -7,13 +7,13 @@ namespace LibraryA.Tests
     public class ATests
     {
         private MockRepository _mockRepository;
-        private Mock<IDoSomethingEvent> _mockDoSomethingEvent;
+        private Mock<ISomethingProvider> _mockDoSomethingEvent;
 
         [TestInitialize]
         public void TestInitialize()
         {
             _mockRepository = new MockRepository(MockBehavior.Strict);
-            _mockDoSomethingEvent = _mockRepository.Create<IDoSomethingEvent>();
+            _mockDoSomethingEvent = _mockRepository.Create<ISomethingProvider>();
         }
 
         private A CreateA()
@@ -28,10 +28,10 @@ namespace LibraryA.Tests
             // Arrange
             var a = CreateA();
             // Setup the mock
-            _mockDoSomethingEvent.Setup(m => m.DoSomething());
+            _mockDoSomethingEvent.Setup(m => m.ReturnSomething());
 
             // Act
-            a.DoSomething();
+            a.ReturnSomething();
 
             // Assert
             // The below will now at least assert that B.DoSomething was called.

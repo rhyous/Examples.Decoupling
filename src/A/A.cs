@@ -1,24 +1,25 @@
 ﻿using LibraryA.Interfaces;
+using LibraryA.Models;
 
 namespace LibraryA
 {
     public class A : IA
     {
-        private readonly IDoSomethingEvent _doSomethingEvent;
+        private readonly ISomethingProvider _somethingProvider;
 
         // We now are following SOLID, and depending on only an interface.
-        public A(IDoSomethingEvent doSomethingEvent)
+        public A(ISomethingProvider doSomethingEvent)
         {
-            _doSomethingEvent = doSomethingEvent;
+            _somethingProvider = doSomethingEvent;
         }
 
-        public void DoSomething()
+        public Something ReturnSomething()
         {
             // All coupling to both IB or B is gone!
             // Responsibilities
             // 1. DoSomething() - this is the only responsiblity it should have.
-            _doSomethingEvent.DoSomething();
-            Console.WriteLine($"{nameof(A)} did something!");
+            Console.WriteLine($"{nameof(A)} will return something!");
+            return _somethingProvider.ReturnSomething();
         }
     }
 }

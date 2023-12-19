@@ -1,7 +1,9 @@
-﻿namespace LibraryA.Interfaces
+﻿using LibraryA.Models;
+
+namespace LibraryA.Interfaces
 {
     public interface IA
     {
-        void DoSomething();
+        Something ReturnSomething();
     }
 }
