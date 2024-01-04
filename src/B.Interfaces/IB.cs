@@ -1,9 +1,8 @@
-﻿using LibraryB.Models;
-
-namespace LibraryB.Interfaces
+﻿namespace LibraryB.Interfaces
 {
     public interface IB
     {
-        Something ReturnSomething();
+        string Name { get; }
+        string Serialize();
     }
 }

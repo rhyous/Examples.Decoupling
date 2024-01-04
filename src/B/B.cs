@@ -1,14 +1,25 @@
 ﻿using LibraryB.Interfaces;
-using LibraryB.Models;
 
 namespace LibraryB
 {
     public class B : IB
     {
-        public Something ReturnSomething()
+        private readonly Interfaces.ISerializer _serializer;
+
+        public B(ISerializer serializer)
         {
-            Console.WriteLine($"{nameof(B)} will return something!");
-            return new Something { Id = 27, Name = "Something 27" }; 
+            _serializer = serializer;
+        }
+
+        public string Name { get; set; }
+
+        public string Serialize()
+        {
+            // All coupling to Newtonsoft.Json is gone!
+            // This coupling can be moved to the App or Composition Root.
+            var serializedObject = _serializer.Serialize(this);
+            Console.WriteLine($"Serialized Object{Environment.NewLine}{serializedObject}");
+            return serializedObject;
         }
     }
 }

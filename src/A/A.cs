@@ -1,25 +1,26 @@
 ﻿using LibraryA.Interfaces;
-using LibraryA.Models;
 
 namespace LibraryA
 {
     public class A : IA
     {
-        private readonly ISomethingProvider _somethingProvider;
+        private readonly ISerializer _serializer;
 
         // We now are following SOLID, and depending on only an interface.
-        public A(ISomethingProvider doSomethingEvent)
+        public A(ISerializer serializer)
         {
-            _somethingProvider = doSomethingEvent;
+            _serializer = serializer;
         }
 
-        public Something ReturnSomething()
+        public string Name { get; set; }
+
+        public string Serialize()
         {
-            // All coupling to both IB or B is gone!
-            // Responsibilities
-            // 1. DoSomething() - this is the only responsiblity it should have.
-            Console.WriteLine($"{nameof(A)} will return something!");
-            return _somethingProvider.ReturnSomething();
+            // All coupling to Newtonsoft.Json is gone!
+            // This coupling can be moved to the App or Composition Root.
+            var serializedObject = _serializer.Serialize(this);
+            Console.WriteLine($"Serialized Object{Environment.NewLine}{serializedObject}");
+            return serializedObject;
         }
     }
 }

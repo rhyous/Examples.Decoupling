@@ -7,33 +7,35 @@ namespace LibraryA.Tests
     public class ATests
     {
         private MockRepository _mockRepository;
-        private Mock<ISomethingProvider> _mockDoSomethingEvent;
+        private Mock<ISerializer> _mockSerializer;
 
         [TestInitialize]
         public void TestInitialize()
         {
             _mockRepository = new MockRepository(MockBehavior.Strict);
-            _mockDoSomethingEvent = _mockRepository.Create<ISomethingProvider>();
+            _mockSerializer = _mockRepository.Create<ISerializer>();
         }
 
         private A CreateA()
         {
-            return new A(_mockDoSomethingEvent.Object);
+            return new A(_mockSerializer.Object);
         }
 
-        #region DoSomething
+        #region Serialize
         [TestMethod]
-        public void A_DoSomething_UnableToTest_Test()
+        public void A_Serialize_SerializesObject_Test()
         {
             // Arrange
             var a = CreateA();
             // Setup the mock
-            _mockDoSomethingEvent.Setup(m => m.ReturnSomething());
+            var serializedString = "{ \"Name\": \"Some Name\"}";
+            _mockSerializer.Setup(m => m.Serialize(a)).Returns(serializedString);
 
             // Act
-            a.ReturnSomething();
+            var actual = a.Serialize();
 
             // Assert
+            Assert.AreEqual(serializedString, actual);
             // The below will now at least assert that B.DoSomething was called.
             _mockRepository.VerifyAll();
         }

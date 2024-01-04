@@ -1,9 +1,8 @@
-﻿using LibraryA.Models;
-
-namespace LibraryA.Interfaces
+﻿namespace LibraryA.Interfaces
 {
     public interface IA
     {
-        Something ReturnSomething();
+        string Name { get; }
+        string Serialize();
     }
 }

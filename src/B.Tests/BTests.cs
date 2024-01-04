@@ -1,37 +1,42 @@
-using LibraryB;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using LibraryB.Interfaces;
 using Moq;
 
-namespace LibraryA.Tests
+namespace LibraryB.Tests
 {
     [TestClass]
     public class BTests
     {
         private MockRepository _mockRepository;
+        private Mock<ISerializer> _mockSerializer;
 
         [TestInitialize]
         public void TestInitialize()
         {
             _mockRepository = new MockRepository(MockBehavior.Strict);
+            _mockSerializer = _mockRepository.Create<ISerializer>();
         }
 
-        private B CreateB()
+        private B CreateA()
         {
-            return new B();
+            return new B(_mockSerializer.Object);
         }
 
-        #region DoSomething
+        #region Serialize
         [TestMethod]
-        public void B_DoSomething_UnableToTest_Test()
+        public void B_Serialize_SerializesObject_Test()
         {
             // Arrange
-            var a = CreateB();
+            var a = CreateA();
+            // Setup the mock
+            var serializedString = "{ \"Name\": \"Some Name\"}";
+            _mockSerializer.Setup(m => m.Serialize(a)).Returns(serializedString);
 
             // Act
-            a.ReturnSomething();
+            var actual = a.Serialize();
 
             // Assert
-            // What do we assert?
+            Assert.AreEqual(serializedString, actual);
+            // The below will now at least assert that B.DoSomething was called.
             _mockRepository.VerifyAll();
         }
         #endregion
