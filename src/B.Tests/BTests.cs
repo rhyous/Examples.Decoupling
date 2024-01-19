@@ -1,4 +1,5 @@
 using LibraryB;
+using LibraryC;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -17,7 +18,7 @@ namespace LibraryB.Tests
 
         private B CreateB()
         {
-            return new B();
+            return new B(new C());
         }
 
         #region DoSomething
